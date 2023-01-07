@@ -92,8 +92,8 @@ class PreDistribuce(BinarySensorEntity):
     @property
     def is_on(self):
         """Return entity state."""
-        hdoNizkyVysoky = self.tree.xpath('//div[@id="component-hdo-dnes"]/div[@class="hdo-bar"]/span[starts-with(@class, "hdo")]/@class')
-        hdoCasyCitelne = self.tree.xpath('//div[@id="component-hdo-dnes"]/div/span[@class="span-overflow"]/@title')
+        hdoNizkyVysoky = self.tree.xpath('//div[@id="component-hdo-zitra"]/div[@class="hdo-bar"]/span[starts-with(@class, "hdo")]/@class')
+        hdoCasyCitelne = self.tree.xpath('//div[@id="component-hdo-zitra"]/div/span[@class="span-overflow"]/@title')
         hdoNizkyVysoky = [ x[3].upper() for x in hdoNizkyVysoky ]
         hdoCasyZacatky = [ x[0:5].upper() for x in hdoCasyCitelne ]
 
