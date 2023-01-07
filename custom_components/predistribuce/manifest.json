@@ -1,6 +1,6 @@
 {
-    "domain": "predistribuce",
-    "name": "PRE Distribuce",
+    "domain": "predistribucezitra",
+    "name": "PRE Distribuce - Zitra",
     "documentation": "https://github.com/slesinger/HomeAssistant-PREdistribuce",
     "issue_tracker": "https://github.com/slesinger/HomeAssistant-PREdistribuce/issues",
     "dependencies": [],
