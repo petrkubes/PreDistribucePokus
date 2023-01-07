@@ -1,4 +1,6 @@
 # PRE Distribuce - Home Assistant Sensor
+Zkopirovano z: https://github.com/slesinger/HomeAssistant-PREdistribuce
+za účelem pokusů (učím se s pythonem a HA)
 
 [![hacs_badge](https://img.shields.io/badge/HACS-Default-orange.svg?style=for-the-badge)](https://github.com/custom-components/hacs)
 
