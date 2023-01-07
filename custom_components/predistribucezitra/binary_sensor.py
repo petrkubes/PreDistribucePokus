@@ -63,12 +63,12 @@ def setup_platform(hass, config, add_entities, discovery_info=None):
     conf_cmd = config.get(CONF_CMD)
     conf_periods = config.get(CONF_PERIODS, [])
     ents = []
-    ents.append(PreDistribuce(conf_cmd, 0, "HDO zítra"))
+    ents.append(PreDistribuceZitra(conf_cmd, 0, "HDO zítra"))
     for pre in conf_periods:
-        ents.append(PreDistribuce(conf_cmd, pre.get(CONF_MINUTES), pre.get(CONF_NAME)))
+        ents.append(PreDistribuceZitra(conf_cmd, pre.get(CONF_MINUTES), pre.get(CONF_NAME)))
     add_entities(ents)
 
-class PreDistribuce(BinarySensorEntity):
+class PreDistribuceZitra(BinarySensorEntity):
 
     def __init__(self, conf_cmd, minutes, name):
         """Initialize the sensor."""
