@@ -16,7 +16,7 @@ _LOGGER = logging.getLogger(__name__)
 
 URL = "https:/predistribuce.cz/blabla/dd"
 
-DOMAIN = "predistribuce"
+DOMAIN = "predistribucezitra"
 CONF_CMD = "receiver_command_id"
 CONF_PERIODS = "periods"
 CONF_NAME = "name"
