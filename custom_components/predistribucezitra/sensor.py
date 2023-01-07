@@ -39,10 +39,10 @@ PLATFORM_SCHEMA = PLATFORM_SCHEMA.extend(
 def setup_platform(hass, config, add_entities, discovery_info=None):
     conf_cmd = config.get(CONF_CMD)
     ents = []
-    ents.append(PreDistribuce(conf_cmd, 0, "HDO čas do nízkého tarifu"))
+    ents.append(PreDistribuceZitra(conf_cmd, 0, "HDO čas do nízkého tarifu"))
     add_entities(ents)
 
-class PreDistribuce(Entity):
+class PreDistribuceZitra(Entity):
 
     def __init__(self, conf_cmd, minutes, name):
         """Initialize the sensor."""
@@ -70,8 +70,8 @@ class PreDistribuce(Entity):
     @property
     def state(self):
         """Return time to wait until low tariff."""
-        hdoNizkyVysoky = self.tree.xpath('//div[@id="component-hdo-dnes"]/div[@class="hdo-bar"]/span[starts-with(@class, "hdo")]/@class')
-        hdoCasyCitelne = self.tree.xpath('//div[@id="component-hdo-dnes"]/div/span[@class="span-overflow"]/@title')
+        hdoNizkyVysoky = self.tree.xpath('//div[@id="component-hdo-zitra"]/div[@class="hdo-bar"]/span[starts-with(@class, "hdo")]/@class')
+        hdoCasyCitelne = self.tree.xpath('//div[@id="component-hdo-zitra"]/div/span[@class="span-overflow"]/@title')
         hdoNizkyVysoky = [ x[3].upper() for x in hdoNizkyVysoky ]
         hdoCasyZacatky = [ x[0:5].upper() for x in hdoCasyCitelne ]
 
@@ -124,7 +124,7 @@ class PreDistribuce(Entity):
         page = requests.get("https://www.predistribuce.cz/cs/potrebuji-zaridit/zakaznici/stav-hdo/?povel={3}&den_od={0}&mesic_od={1}&rok_od={2}&den_do={0}&mesic_do={1}&rok_do={2}".format(today.day,today.month,today.year,self.conf_cmd))
         if page.status_code == 200:
             self.tree = html.fromstring(page.content)
-            self.html = etree.tostring(self.tree.xpath('//div[@id="component-hdo-dnes"]')[0]).decode("utf-8").replace('\n', '').replace('\t', '').replace('"/>', '"></span>')
+            self.html = etree.tostring(self.tree.xpath('//div[@id="component-hdo-zitra"]')[0]).decode("utf-8").replace('\n', '').replace('\t', '').replace('"/>', '"></span>')
             #_LOGGER.warn("UPDATING POST {}".format(self.html))
             self.last_update_success = True
         else:
