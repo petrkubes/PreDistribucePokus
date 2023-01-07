@@ -2,7 +2,7 @@
     "name": "PRE Distribuce CZ - Zitra",
     "render_readme": false,
     "domains": [
-	"binary_sensor"
+	"binary_sensor1"
     ],
     "country": "CZ",
     "homeassistant": "2022.5.6"
