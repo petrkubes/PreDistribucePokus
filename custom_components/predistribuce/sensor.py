@@ -15,7 +15,7 @@ from lxml import html, etree
 MIN_TIME_BETWEEN_SCANS = timedelta(seconds=3600)
 _LOGGER = logging.getLogger(__name__)
 
-DOMAIN = "predistribuce"
+DOMAIN = "predistribucezitra"
 CONF_CMD = "receiver_command_id"
 CONF_PERIODS = "periods"
 CONF_NAME = "name"
